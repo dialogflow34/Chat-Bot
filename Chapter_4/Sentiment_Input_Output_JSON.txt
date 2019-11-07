@@ -1,0 +1,28 @@
+Sentiment Analysis Webhook service request json:
+{
+  "responseId": "c0c21aff-64c8-4d0b-be9f-d4ad7bff9863-7e4f1f27",
+  "queryResult": {
+    "queryText": "Thanks for your service. But I didn’t like cab options.",
+    "parameters": {},
+    "allRequiredParamsPresent": true,
+    "intent": {
+      "name": "projects/personality-ypunws/agent/intents/83f25e47-24c0-4fdb-a174-92f7be2394bb",
+      "displayName": "Sentiment"
+    },
+    "intentDetectionConfidence": 1,
+    "languageCode": "en"
+  },
+  "originalDetectIntentRequest": {
+    "payload": {}
+  },
+  "session": "projects/personality-ypunws/agent/sessions/67c6b15b-6cbc-a495-8bdd-50bd023f0eb7"
+}
+Sentiment Analysis Webhook service response json:
+        {
+            "fulfillmentText":  "Sure. We will work with cab vendor to serve you better in future.",
+            "fulfillmentMessages": [{"text": {
+                "text": [
+"Sure. We will work with cab vendor to serve you better in future."                ]
+            }}],
+            "source": "Sentiment-webhook"
+        }

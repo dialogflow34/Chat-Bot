@@ -1,0 +1,28 @@
+    def weather(self):
+        "Weather API"
+        json_data = request.get_json(force=True)
+        location = json_data["queryResult"]["parameters"]["geo-city"]
+
+        # api-endpoint
+        URL = "http://api.openweathermap.org/data/2.5/weather?q="+location+"&units=metric&APPID=19e8588cb3d7d0623e3a5a8ec529232f"
+
+        # sending get request and saving the response as response object
+        response = requests.get(url=URL)
+
+        # extracting data in json format
+        result = response.json()
+        response = "Weather Report of " + location + " --> Current Temperature : " + str(result["main"][
+            "temp"]) + ", Pressure : " + str(result["main"]["pressure"]) + ", Humidity : " + str(result["main"]["humidity"]) + \
+                   ", temp_min : " + str(result["main"]["temp_min"]) + ", temp_max : " + str(result["main"]["temp_max"])
+
+        print(response)
+        output = {
+            "fulfillmentText": response,
+            "fulfillmentMessages": [{"text": {
+                "text": [
+                    response
+                ]
+            }}],
+            "source": "weather-webhook"
+        }
+        return json.dumps(output)

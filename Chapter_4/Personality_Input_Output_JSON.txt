@@ -1,0 +1,36 @@
+Chatbot Personality – Sample Request json:
+
+{
+  "responseId": "c0c21aff-64c8-4d0b-be9f-d4ad7bff9863-7e4f1f27",
+  "queryResult": {
+    "queryText": "What is your Name?",
+    "parameters": {},
+    "allRequiredParamsPresent": true,
+    "intent": {
+      "name": "projects/personality-ypunws/agent/intents/83f25e47-24c0-4fdb-a174-92f7be2394bb",
+      "displayName": "Personality"
+    },
+    "intentDetectionConfidence": 1,
+    "languageCode": "en"
+  },
+  "originalDetectIntentRequest": {
+    "payload": {}
+  },
+  "session": "projects/personality-ypunws/agent/sessions/67c6b15b-6cbc-a495-8bdd-50bd023f0eb7"
+}
+
+Chatbot Personality – Sample Response json:
+
+{
+    "fulfillmentText": "I am chatbot and answers travel related queries",
+    "fulfillmentMessages": [
+        {
+            "text": {
+                "text": [
+                    "I am chatbot and answers travel related queries"
+                ]
+            }
+        }
+    ],
+    "source": "personality-webhook"
+}

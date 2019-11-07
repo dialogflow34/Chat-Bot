@@ -1,0 +1,36 @@
+Input JSON:
+{
+  "responseId": "12c5e0ed-7ec3-4ce6-938e-ce1a5fa5ceaf-7e4f1f27",
+  "queryResult": {
+    "queryText": "show me weather in London",
+    "parameters": {
+      "geo-city": "London"
+    },
+    "allRequiredParamsPresent": true,
+    "intent": {
+      "name": "projects/weather-hvucqi/agent/intents/9965f638-213e-4f1d-82a0-9928013f707c",
+      "displayName": "Weather"
+    },
+    "intentDetectionConfidence": 1,
+    "languageCode": "en"
+  },
+  "originalDetectIntentRequest": {
+    "payload": {}
+  },
+  "session": "projects/weather-hvucqi/agent/sessions/67c6b15b-6cbc-a495-8bdd-50bd023f0eb7"
+}
+
+Output Json:
+{
+    "fulfillmentText": "Weather Report of London --> Current Temperature : 11.82, Pressure : 1003, Humidity : 93, temp_min : 10.56, temp_max : 13.33",
+    "fulfillmentMessages": [
+        {
+            "text": {
+                "text": [
+                    "Weather Report of London --> Current Temperature : 11.82, Pressure : 1003, Humidity : 93, temp_min : 10.56, temp_max : 13.33"
+                ]
+            }
+        }
+    ],
+    "source": "weather-webhook"
+}

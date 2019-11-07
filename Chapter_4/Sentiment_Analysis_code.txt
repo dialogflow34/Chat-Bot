@@ -1,0 +1,28 @@
+    def run_model_sentiment(self):
+        """
+        This model uses the pre built model and returns sentiment of a statement
+        :return:
+        output_json:json
+        """
+        output_json = None
+
+        try:
+            output_list = list()
+            input_list = list()
+            json_data = request.get_json(force=True)
+            input_list.append(json_data["queryResult"]["queryText"])
+
+            if len(input_list) != 0 and input_list[0] != "":
+                output_list = self.MODEL(input_list)
+            output_label = list(map(lambda x: "Positive" if x == "1" else "Negative", output_list[0]))
+            output_score = output_list[1]
+            score = list(map(lambda x: str(np.max(x)), output_score))
+            output = list(zip(output_label, score))
+            output_json = {"fulfillmentText": output,
+                           "fulfillmentMessages": [{"text": {"text": [output]}}],
+                           "source": ""
+                           }
+        except Exception as e:
+            print("Error in fetching sentiment for the data\n")
+            print(e)
+            return json.dumps(output_json)
