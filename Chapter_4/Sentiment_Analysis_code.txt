@@ -1,3 +1,17 @@
+from deeppavlov.core.commands.train import *
+from deeppavlov import build_model, configs
+from flask import Flask, request, Response
+from flask_classful import FlaskView, route
+import json
+import numpy as np
+
+app=Flask(__name__)
+
+class SentimentAnalysis(FlaskView):
+    """"This class returns the sentiment of a statement"""
+    module_name = "sentiment_anlysis"
+    MODEL = build_model(module_name, download=False)
+    @route("/FetchSentiment", methods=['POST'])
     def run_model_sentiment(self):
         """
         This model uses the pre built model and returns sentiment of a statement
@@ -26,3 +40,8 @@
             print("Error in fetching sentiment for the data\n")
             print(e)
             return json.dumps(output_json)
+
+SentimentAnalysis.register(app=app,route_base="/Analysis")
+
+if __name__ == "__main__":
+    app.run()
